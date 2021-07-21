@@ -39,17 +39,17 @@
                             </thead>
                             <tbody>
 
-                            @php($x = 1)
+                            {{-- @php($x = 1) --}}
                             @foreach ($categories as $category)
                               <tr>
-                                <th scope="row">{{ $x++ }}</th>
+                                <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
                                 <td>{{ $category->category_name }}</td>
                                 <td>{{ $category->user_id }}</td>
                                 <td>
                                     @if ($category->created_at == NULL)
                                         <span class="text-danger">No Date Set</span>
                                     @else
-                                    {{ $category->created_at->diffForHumans() }}
+                                    {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
                                     @endif
                                 </td>
                               </tr>
@@ -57,6 +57,9 @@
                               
                             </tbody>
                           </table>
+
+                          {{-- pagination --}}
+                          {{ $categories->links() }}
 
                         </div>
                     </div>
