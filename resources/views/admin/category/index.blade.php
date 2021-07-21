@@ -17,7 +17,15 @@
 
                     <div class="col-md-8">
                         <div class="card">
-                            <div class="card-header">All Category</div>
+                            
+                            @if (session('succsess'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ session('succsess') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                            @endif
+
+                         <div class="card-header">All Category</div>
                     
 
                         <table class="table">
@@ -55,7 +63,7 @@
                                     @csrf
                                     <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Category Name</label>
-                                    <input type="email" name="category_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                     
                                     @error('category_name')
                                         <span class="text-danger">{{ $message }}</span>
