@@ -13,7 +13,8 @@ class CategoryController extends Controller
     public function AllCat()
     {
         $categories = Category::latest()->paginate(5);
-        return view('admin.category.index', compact('categories'));
+        $trachCat = Category::onlyTrashed()->latest()->paginate(3);
+        return view('admin.category.index', compact('categories', 'trachCat'));
     }
 
 
@@ -56,5 +57,11 @@ class CategoryController extends Controller
             'user_id' => Auth::user()->id
         ]);
         return Redirect()->route('all.category')->with('succsess', 'Category Updated Successfull');
+    }
+
+    public function SoftDelete($id)
+    {
+        $delete = Category::find($id)->delete();
+        return Redirect()->back()->with('succsess', 'Category Soft Delete Successfull');
     }
 }
