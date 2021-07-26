@@ -7,6 +7,7 @@ use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Image;
 
 class BrandController extends Controller
 {
@@ -30,12 +31,18 @@ class BrandController extends Controller
 
         $brand_image = $request->file('brand_image');
 
-        $name_gen = hexdec(uniqid());
-        $img_ext = strtolower($brand_image->getClientOriginalExtension());
-        $img_name = $name_gen . '.' . $img_ext;
-        $up_location = 'image/brand/';
-        $last_img = $up_location . $img_name;
-        $brand_image->move($up_location, $img_name);
+        // $name_gen = hexdec(uniqid());
+        // $img_ext = strtolower($brand_image->getClientOriginalExtension());
+        // $img_name = $name_gen . '.' . $img_ext;
+        // $up_location = 'image/brand/';
+        // $last_img = $up_location . $img_name;
+        // $brand_image->move($up_location, $img_name);
+
+        // insert menggunakan image Intervention
+        $name_gen = hexdec(uniqid()) . '.' . $brand_image->getClientOriginalExtension();
+        Image::make($brand_image)->resize(300, 200)->save('image/brand/' . $name_gen);
+
+        $last_img = 'image/brand/' . $name_gen;
 
         Brand::insert([
             'brand_name' => $request->brand_name,
