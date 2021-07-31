@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function AllCat()
     {
         $categories = Category::latest()->paginate(5);
@@ -65,12 +71,14 @@ class CategoryController extends Controller
         return Redirect()->back()->with('succsess', 'Category Soft Delete Successfull');
     }
 
-    public function Restore($id){
+    public function Restore($id)
+    {
         $delete = Category::withTrashed()->find($id)->restore();
         return Redirect()->back()->with('succsess', 'Category Restore Successfull');
     }
 
-    public function Pdelete($id){
+    public function Pdelete($id)
+    {
         $delete = Category::onlyTrashed()->find($id)->forceDelete();
         return Redirect()->back()->with('succsess', 'Category Permanent Deleted Successfull');
     }
