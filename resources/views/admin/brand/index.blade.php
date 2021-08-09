@@ -1,12 +1,7 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
-            All Brand <b> </b>
-            
+@extends('admin.admin_master')
 
-        </h2>
-    </x-slot>
+
+@section('admin')
 
     <div class="py-12">
         {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -108,9 +103,7 @@
                     </div>
                 </div><br>
 
-
-                
             {{-- </div>
         </div> --}}
     </div>
-</x-app-layout>
+@endsection
