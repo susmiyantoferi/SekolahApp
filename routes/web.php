@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -37,6 +39,7 @@ Route::get('/softdelete/category/{id}', [CategoryController::class, 'SoftDelete'
 Route::get('/category/restore/{id}', [CategoryController::class, 'Restore']);
 Route::get('/pdelete/category/{id}', [CategoryController::class, 'Pdelete']);
 
+
 // Brand Controller & Route 
 Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
 Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
@@ -49,13 +52,19 @@ Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.ima
 //Logout Route
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
 
-//Home Controller & Route
+
+//Home Controller & Route (SLider)
 Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
 Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
 Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
 Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
 Route::post('/slider/update/{id}', [HomeController::class, 'Update']);
 Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
+
+
+//About Controller & Route 
+Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
