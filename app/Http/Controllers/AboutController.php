@@ -29,6 +29,30 @@ class AboutController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return Redirect()->route('home.about')->with('succsess', 'About Inserted Successfull');
+        return Redirect()->route('home.about')->with('succsess', 'About Data Inserted Successfull');
+    }
+
+    public function EditAbout($id)
+    {
+        $homeAbout = HomeAbout::find($id);
+        return view('admin.about.edit', compact('homeAbout'));
+    }
+
+    public function UpdateAbout(Request $request, $id)
+    {
+        HomeAbout::find($id)->update([
+            'title' => $request->title,
+            'short_discrp' => $request->short_discrp,
+            'long_discrp' => $request->long_discrp,
+            'created_at' => Carbon::now()
+        ]);
+
+        return Redirect()->route('home.about')->with('succsess', 'About Data Updated Successfull');
+    }
+
+    public function DeleteAbout($id)
+    {
+        HomeAbout::find($id)->delete();
+        return Redirect()->route('home.about')->with('succsess', 'About Data Deleted Successfull');
     }
 }
