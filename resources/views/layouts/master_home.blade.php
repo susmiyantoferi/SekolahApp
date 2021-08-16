@@ -40,7 +40,7 @@
 <body>
 
     @include('layouts.header.header')
-    @include('layouts.header.slider')
+    
 
   
 

@@ -1,12 +1,7 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
-            Multi Picture <b> </b>
-            
+@extends('admin.admin_master')
 
-        </h2>
-    </x-slot>
+
+@section('admin')
 
     <div class="py-12">
         {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -19,9 +14,9 @@
                         <div class="card-group">
 
                             @foreach ($images as $multi)
-                            <div class="col-4 mt-3">
+                            <div class="col-md-4 mt-5">
 
-                                <div class="p-3">
+                                <div class="card">
                                     <img src="{{ asset($multi->image) }}" alt="">
                                     
                                 </div>
@@ -67,4 +62,4 @@
             {{-- </div>
         </div> --}}
     </div>
-</x-app-layout>
+@endsection
