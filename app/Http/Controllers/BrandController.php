@@ -9,7 +9,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-//use Image;
 use Intervention\Image\Facades\Image;
 
 class BrandController extends Controller
