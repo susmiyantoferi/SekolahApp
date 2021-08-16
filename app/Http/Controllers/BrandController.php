@@ -139,7 +139,7 @@ class BrandController extends Controller
 
             // insert menggunakan image Intervention
             $name_gen = hexdec(uniqid()) . '.' . $multi_img->getClientOriginalExtension();
-            Image::make($multi_img)->resize(300, 300)->save('image/multi/' . $name_gen);
+            Image::make($multi_img)->save('image/multi/' . $name_gen);
 
             $last_img = 'image/multi/' . $name_gen;
 
@@ -154,7 +154,8 @@ class BrandController extends Controller
 
 
     // Logout System
-    public function Logout(){
+    public function Logout()
+    {
         Auth::logout();
         return Redirect()->route('login')->with('succsess', 'User Logout');
     }
