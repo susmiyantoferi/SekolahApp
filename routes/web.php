@@ -87,6 +87,9 @@ Route::get('/contact/delete/{id}', [ContactController::class, 'DeleteContact']);
 //Contact page Route
 Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
+//COntact Message Admin
+Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('admin.message');
+Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
