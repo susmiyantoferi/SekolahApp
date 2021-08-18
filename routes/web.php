@@ -79,6 +79,11 @@ Route::get('/portofolio', [AboutController::class, 'Portofolio'])->name('portofo
 
 //Contact Controller & Route
 Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/admin/create/contact', [ContactController::class, 'CreateContact'])->name('create.contact');
+Route::post('/admin/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
+Route::get('/contact/edit/{id}', [ContactController::class, 'EditContact']);
+Route::post('/contact/update/{id}', [ContactController::class, 'UpdateContact']);
+Route::get('/contact/delete/{id}', [ContactController::class, 'DeleteContact']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -11,7 +11,7 @@
                 <div class="container">
                     <div class="row">
 
-                     <a href="{{ route('add.about') }}"> <button class="btn btn-info">Add Contact</button> </a>
+                     <a href="{{ route('create.contact') }}"> <button class="btn btn-info">Add Contact</button> </a>
                         
                     <div class="col-md-12">
                         <div class="card">
