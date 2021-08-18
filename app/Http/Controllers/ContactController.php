@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -53,5 +54,11 @@ class ContactController extends Controller
     {
         Contact::find($id)->delete();
         return Redirect()->route('admin.contact')->with('succsess', 'Contact Data Deleted Successfull');
+    }
+
+    public function HomeContact()
+    {
+        $contacts = DB::table('contacts')->first();
+        return view('pages.contact', compact('contacts'));
     }
 }

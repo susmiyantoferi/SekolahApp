@@ -84,6 +84,8 @@ Route::post('/admin/add/contact', [ContactController::class, 'AddContact'])->nam
 Route::get('/contact/edit/{id}', [ContactController::class, 'EditContact']);
 Route::post('/contact/update/{id}', [ContactController::class, 'UpdateContact']);
 Route::get('/contact/delete/{id}', [ContactController::class, 'DeleteContact']);
+//Contact page Route
+Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
