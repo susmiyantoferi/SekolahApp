@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 
@@ -75,6 +76,9 @@ Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 //Portofolio Route Page
 Route::get('/portofolio', [AboutController::class, 'Portofolio'])->name('portofolio');
 
+
+//Contact Controller & Route
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
