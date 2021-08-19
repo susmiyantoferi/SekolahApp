@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ChangePassController;
 use App\Http\Controllers\ContactController;
 use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
@@ -97,3 +98,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //$users = User::all();
     return view('admin.index');
 })->name('dashboard');
+
+
+//Change Password & User Profil Route
+Route::get('/user/password', [ChangePassController::class, 'ChangePass'])->name('change.password');
+Route::post('/password/update', [ChangePassController::class, 'UpdatePass'])->name('password.update');
