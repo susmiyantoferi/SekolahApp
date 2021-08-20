@@ -103,3 +103,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Change Password & User Profil Route
 Route::get('/user/password', [ChangePassController::class, 'ChangePass'])->name('change.password');
 Route::post('/password/update', [ChangePassController::class, 'UpdatePass'])->name('password.update');
+//user profil route
+Route::get('/user/profil', [ChangePassController::class, 'ChangeProfil'])->name('profil.update');

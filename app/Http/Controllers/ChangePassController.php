@@ -33,4 +33,14 @@ class ChangePassController extends Controller
             return redirect()->back()->with('error', 'Current Password Is Invalid');
         }
     }
+
+    public function ChangeProfil()
+    {
+        if (Auth::user()) {
+            $user = User::find(Auth::user()->id);
+            if ($user) {
+                return view('admin.body.changeProfil', compact('user'));
+            }
+        }
+    }
 }
