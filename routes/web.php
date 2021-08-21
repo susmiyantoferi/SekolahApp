@@ -105,3 +105,4 @@ Route::get('/user/password', [ChangePassController::class, 'ChangePass'])->name(
 Route::post('/password/update', [ChangePassController::class, 'UpdatePass'])->name('password.update');
 //user profil route
 Route::get('/user/profil', [ChangePassController::class, 'ChangeProfil'])->name('profil.update');
+Route::post('/user/profil/update', [ChangePassController::class, 'UserUpdate'])->name('user.update');

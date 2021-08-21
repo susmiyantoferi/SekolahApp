@@ -95,6 +95,7 @@
                       <p><a class="text-blue" href="{{ route('password.request') }}">Forgot Your Password?</a></p>
                     </div>
                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
+                    <a href="/">Home</a>
                     <p>Don't have an account yet ?
                       <a class="text-blue" href="{{ route('register') }}">Sign Up</a>
                     </p>

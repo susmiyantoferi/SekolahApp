@@ -34,6 +34,7 @@ class ChangePassController extends Controller
         }
     }
 
+    //User Profil Controller
     public function ChangeProfil()
     {
         if (Auth::user()) {
@@ -42,5 +43,19 @@ class ChangePassController extends Controller
                 return view('admin.body.changeProfil', compact('user'));
             }
         }
+    }
+
+    public function UserUpdate(Request $request){
+        $user = User::find(Auth::user()->id);
+            if ($user) {
+                $user->name = $request['name'];
+                $user->email = $request['email'];
+
+                $user->save();
+                return redirect()->back()->with('succsess', 'User Profil Update Successfull');
+            } 
+            else{
+                return redirect()->back();
+            }
     }
 }
