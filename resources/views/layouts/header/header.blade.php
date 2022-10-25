@@ -2,15 +2,15 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html"><span>Wel</span>Come</a></h1>
+      <h1 class="logo mr-auto"><a href="/">Pesantren <span>shirothul fuqoha' II</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="/">Home</a></li>
+          <li class=""><a href="/">Home</a></li>
 
-          <li class="drop-down"><a href="">About</a>
+          {{-- <li class="drop-down"><a href="">About</a>
             <ul>
               <li><a href="about.html">About Us</a></li>
               <li><a href="team.html">Team</a></li>
@@ -25,14 +25,14 @@
                 </ul>
               </li>
             </ul>
-          </li>
+          </li> --}}
 
-          <li><a href="services.html">Services</a></li>
+          <li><a href="{{ route('daftar') }}">Pendaftaran</a></li>
           <li><a href="{{ route('portofolio') }}">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          {{-- <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li> --}}
           <li><a href="{{ route('contact') }}">Contact</a></li>
-          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('login') }}" target="_blank">Login</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ChangePassController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DaftarController;
 use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 
@@ -65,6 +66,10 @@ Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('stor
 Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
 Route::post('/slider/update/{id}', [HomeController::class, 'Update']);
 Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
+
+//Daftar Santri Controller & Route
+Route::get('/daftar', [DaftarController::class, 'Daftar'])->name('daftar');
+Route::get('/add/santri', [DaftarController::class, 'addSantri'])->name('santri.add');
 
 
 //About Controller & Route 
