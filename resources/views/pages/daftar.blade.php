@@ -46,7 +46,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach ($alldata as $key => $santri)
+                  @foreach ($data as $key => $santri)
                     <tr>
                         <td>{{$key+1}}</td>
                         <td>{{ $santri->nik }}</td>
@@ -65,6 +65,10 @@
                     
                 </tfoot>
               </table>
+
+              {{-- pagination --}}
+              {{ $data->links() }}
+
             </div>
         </div>
         <!-- /.box-body -->

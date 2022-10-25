@@ -25,7 +25,7 @@
     <div class="box-body">
         <div class="row">
           <div class="col">
-              <form method="POST" action="" >
+              <form method="POST" action="{{ route('store.santri.daftar') }}" >
                @csrf
                 <div class="row mt-5 justify-content-center" data-aos="fade-up">
                   <div class="col-lg-10">	
@@ -36,7 +36,7 @@
                        <div class="form-group">
                          <h5>NIK <span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="name" class="form-control" required="">
+                             <input type="text" name="nik" class="form-control" required="">
                          </div>
                        </div>
 
@@ -47,7 +47,7 @@
                        <div class="form-group">
                          <h5>NISN<span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="f_name" class="form-control" required="">
+                             <input type="text" name="nisn" class="form-control" required="">
                          </div>
                        </div>
 
@@ -58,7 +58,7 @@
                        <div class="form-group">
                          <h5>Nama Lengkap <span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="m_name" class="form-control" required="">
+                             <input type="text" name="nama" class="form-control" required="">
                          </div>
                        </div>
 
@@ -75,7 +75,7 @@
                           <h5>Jenis Kelamin <span class="text-danger">*</span></h5>
                           <div class="controls">
                   
-                              <select name="gender" id="gender" required="" class="form-control">
+                              <select name="kelamin" id="kelamin" required="" class="form-control">
                                   <option value="" selected="" disabled="" >Pilih</option>
                                   <option value="laki">Laki-laki</option>
                                   <option value="Perempuan">Perempuan</option>
@@ -91,7 +91,7 @@
                        <div class="form-group">
                          <h5>Tempat lahir<span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="mobile" class="form-control" required="">
+                             <input type="text" name="tempat_lahir" class="form-control" required="">
                          </div>
                        </div>
 
@@ -102,7 +102,7 @@
                         <div class="form-group">
                           <h5>Tanggal Lahir <span class="text-danger">*</span></h5>
                           <div class="controls">
-                              <input type="date" name="dob" class="form-control" required="">
+                              <input type="date" name="tgl_lahir" class="form-control" required="">
                           </div>
                         </div>
  
@@ -117,7 +117,7 @@
                         <div class="form-group">
                           <h5>Alamat <span class="text-danger">*</span></h5>
                           <div class="controls">
-                              <input type="text" name="address" class="form-control" required="">
+                              <input type="text" name="alamat" class="form-control" required="">
                           </div>
                         </div>
  
@@ -129,7 +129,7 @@
                          <h5>Tinggal bersama <span class="text-danger">*</span></h5>
                          <div class="controls">
                  
-                             <select name="religion" id="religion" required="" class="form-control">
+                             <select name="tinggal" id="religion" required="" class="form-control">
                                  <option value="" selected="" disabled="" >Pilih</option>
                                  <option value="Orangtua">Orangtua</option>
                                  <option value="Wali">Wali</option>

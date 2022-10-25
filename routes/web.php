@@ -70,6 +70,7 @@ Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
 //Daftar Santri Controller & Route
 Route::get('/daftar', [DaftarController::class, 'Daftar'])->name('daftar');
 Route::get('/add/santri', [DaftarController::class, 'addSantri'])->name('santri.add');
+Route::post('/add/santri/store', [DaftarController::class, 'StoreSantri'])->name('store.santri.daftar');
 
 
 //About Controller & Route 
