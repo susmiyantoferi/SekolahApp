@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orangtua;
 use App\Models\Santri;
 use Illuminate\Http\Request;
 
@@ -49,10 +50,65 @@ class DaftarController extends Controller
         $data->save();
 
         $notification = array(
-            'message' => 'Pendaftaran Berhasil',
+            'message' => 'Data Santri Berhasil Dimasukan',
+            'alert-type' => 'success',
+        );
+
+        // return redirect()->route('daftar')->with($notification);
+        return view('pages.orangtua.add_orangtua')->with($notification);
+    }
+
+    public function AddOrangtua(){
+        return view('pages.orangtua.add_orangtua');
+    }
+
+    public function StoreOrangtua(Request $request){
+        $validateData = $request->validate([
+            'no_kk' => 'required|unique:orangtuas',
+            'nik_ayh' => 'required|unique:orangtuas',
+            'nama_ayh' => 'required',
+            'agama_ayh' => 'required',
+            'pend_ayh' => 'required',
+            'kerja_ayh' => 'required',
+            'gaji_ayh' => 'required',
+            'status_ayh' => 'required',
+            'nik_ibu' => 'required|unique:orangtuas',
+            'nama_ibu' => 'required',
+            'agama_ibu' => 'required',
+            'pend_ibu' => 'required',
+            'kerja_ibu' => 'required',
+            'gaji_ibu' => 'required',
+            'status_ibu' => 'required',
+            'hp' => 'required',
+        ]);
+
+        $data = new Orangtua();
+        $data->no_kk = $request->no_kk;
+        $data->nik_ayh = $request->nik_ayh;
+        $data->nama_ayh = $request->nama_ayh;
+        $data->agama_ayh = $request->agama_ayh;
+        $data->pend_ayh = $request->pend_ayh;
+        $data->kerja_ayh = $request->kerja_ayh;
+        $data->gaji_ayh = $request->gaji_ayh;
+        $data->status_ayh = $request->status_ayh;
+
+        $data->nik_ibu = $request->nik_ibu;
+        $data->nama_ibu = $request->nama_ibu;
+        $data->agama_ibu = $request->agama_ibu;
+        $data->pend_ibu = $request->pend_ibu;
+        $data->kerja_ibu = $request->kerja_ibu;
+        $data->gaji_ibu = $request->gaji_ibu;
+        $data->status_ibu = $request->status_ibu;
+        $data->hp = $request->hp;
+
+        $data->save();
+
+        $notification = array(
+            'message' => 'Pendaftaran Berhasil, Klick Print Untuk Melihat Data!',
             'alert-type' => 'success',
         );
 
         return redirect()->route('daftar')->with($notification);
+        
     }
 }

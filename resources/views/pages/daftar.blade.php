@@ -41,7 +41,7 @@
                         <th>NISN</th>
                         <th>Nama</th>
                         <th>Alamat</th>
-                        <th width="20%">Action</th>
+                        <th width="25%">Action</th>
                         
                     </tr>
                 </thead>
@@ -54,6 +54,7 @@
                         <td>{{ $santri->nama }}</td>
                         <td>{{ $santri->alamat }}</td>
                         <td>
+                          {{-- <a href="{{ url('/add/ayah/'.$santri->id) }}" class="btn btn-primary">Data Ayah</a> --}}
                           <a target="_blank" href="" class="btn btn-danger">Print</a>
                           
                         </td>

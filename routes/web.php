@@ -71,6 +71,8 @@ Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
 Route::get('/daftar', [DaftarController::class, 'Daftar'])->name('daftar');
 Route::get('/add/santri', [DaftarController::class, 'addSantri'])->name('santri.add');
 Route::post('/add/santri/store', [DaftarController::class, 'StoreSantri'])->name('store.santri.daftar');
+Route::get('/add/orangtua', [DaftarController::class, 'AddOrangtua']);
+Route::post('/add/orangtua/store', [DaftarController::class, 'StoreOrangtua'])->name('store.orangtua.daftar');
 
 
 //About Controller & Route 

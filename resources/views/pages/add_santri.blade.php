@@ -156,7 +156,7 @@
 
                   <div class="text-xs-right">
                       <input type="submit" class="btn btn-rounded btn-info mb-5" value="Simpan" >
-                      {{-- <a href="" class="btn btn-rounded btn-primary mb-5">Back</a> --}}
+                      {{-- <a href="/add/ayah" class="btn btn-rounded btn-primary mb-5">Isi Data Ayah</a> --}}
                   </div>
               </form>
 
