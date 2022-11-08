@@ -73,6 +73,7 @@ Route::get('/add/santri', [DaftarController::class, 'addSantri'])->name('santri.
 Route::post('/add/santri/store', [DaftarController::class, 'StoreSantri'])->name('store.santri.daftar');
 Route::get('/add/orangtua', [DaftarController::class, 'AddOrangtua']);
 Route::post('/add/orangtua/store', [DaftarController::class, 'StoreOrangtua'])->name('store.orangtua.daftar');
+Route::get('/daftar/print/{id}', [HomeController::class, 'Print']);
 
 
 //About Controller & Route 
