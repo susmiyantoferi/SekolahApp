@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use niklasravnsborg\LaravelPdf\Facades\Pdf;
 use App\Models\Orangtua;
 use App\Models\Santri;
 use Illuminate\Http\Request;
@@ -11,11 +12,11 @@ class DaftarController extends Controller
     public function Daftar()
     {
         $data = Santri::latest()->simplePaginate(5);
-        return view('pages.daftar', compact('data'));
+        return view('pages.pendaftaran.daftar', compact('data'));
     }
 
     public function addSantri(){
-        return view('pages.add_santri');
+        return view('pages.pendaftaran.santri.add_santri');
     }
 
     public function StoreSantri(Request $request){
@@ -37,6 +38,7 @@ class DaftarController extends Controller
 
         ]);
 
+        //insert table santris
         $data = new Santri();
         $data->nik = $request->nik;
         $data->nisn = $request->nisn;
@@ -55,11 +57,11 @@ class DaftarController extends Controller
         );
 
         // return redirect()->route('daftar')->with($notification);
-        return view('pages.orangtua.add_orangtua')->with($notification);
+        return view('pages.pendaftaran.orangtua.add_orangtua')->with($notification);
     }
 
     public function AddOrangtua(){
-        return view('pages.orangtua.add_orangtua');
+        return view('pages.pendaftaran.orangtua.add_orangtua');
     }
 
     public function StoreOrangtua(Request $request){
@@ -82,6 +84,7 @@ class DaftarController extends Controller
             'hp' => 'required',
         ]);
 
+        //insert table orangtuas
         $data = new Orangtua();
         $data->no_kk = $request->no_kk;
         $data->nik_ayh = $request->nik_ayh;
@@ -100,7 +103,6 @@ class DaftarController extends Controller
         $data->gaji_ibu = $request->gaji_ibu;
         $data->status_ibu = $request->status_ibu;
         $data->hp = $request->hp;
-
         $data->save();
 
         $notification = array(
@@ -110,5 +112,16 @@ class DaftarController extends Controller
 
         return redirect()->route('daftar')->with($notification);
         
+    }
+
+    public function DaftarPrint($id){
+        
+        $data['details'] = Santri::with(['orangtua'])->where('id', $id)->first();
+        $data['details'] = Orangtua::with(['santri'])->where('id', $id)->first();
+        // dd($data);
+        //return view('pages.pendaftaran.daftar_print', $data);
+        $pdf = PDF::loadView('pages.pendaftaran.daftar_print', $data);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('Data_Pendaftaran_Santri.pdf');
     }
 }

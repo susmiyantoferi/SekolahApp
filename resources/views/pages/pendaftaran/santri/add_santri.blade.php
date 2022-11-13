@@ -77,7 +77,7 @@
                   
                               <select name="kelamin" id="kelamin" required="" class="form-control">
                                   <option value="" selected="" disabled="" >Pilih</option>
-                                  <option value="laki">Laki-laki</option>
+                                  <option value="laki-laki">Laki-laki</option>
                                   <option value="Perempuan">Perempuan</option>
                               </select>
  

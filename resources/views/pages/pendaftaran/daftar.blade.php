@@ -55,7 +55,7 @@
                         <td>{{ $santri->alamat }}</td>
                         <td>
                           {{-- <a href="{{ url('/add/ayah/'.$santri->id) }}" class="btn btn-primary">Data Ayah</a> --}}
-                          <a target="_blank" href="{{ url('/daftar/print/'.$santri->id) }}" class="btn btn-danger">Print</a>
+                          <a target="_blank" href="{{ route('daftar.print',$santri->id) }}" class="btn btn-danger">Print</a>
                           
                         </td>
                         

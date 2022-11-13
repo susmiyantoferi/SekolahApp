@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orangtua extends Model
 {
-    use HasFactory;
+    public function santri(){
+        return $this->belongsTo(santri::class, 'id', 'id');
+    }
 }
