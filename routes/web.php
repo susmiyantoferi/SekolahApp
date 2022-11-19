@@ -96,6 +96,12 @@ Route::get('/contact/delete/{id}', [ContactController::class, 'DeleteContact']);
 //Contact page Route
 Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
+//pendidikan home
+Route::get('/tasywidul', [ContactController::class, 'HomeTasywidul'])->name('tasywidul');
+Route::get('/mtsshifa', [ContactController::class, 'HomeMtsshifa'])->name('mtsshifa');
+Route::get('/smkshifa', [ContactController::class, 'HomeSmkshifa'])->name('smkshifa');
+Route::get('/rtqusman', [ContactController::class, 'HomeRtqusman'])->name('rtqusman');
+Route::get('/diniyah', [ContactController::class, 'HomeDiniyah'])->name('diniyah');
 //COntact Message Admin
 Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('admin.message');
 Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage']);

@@ -87,4 +87,25 @@ class ContactController extends Controller
         ContactForm::find($id)->delete();
         return Redirect()->route('admin.message')->with('succsess', 'Message Deleted Successfull');
     }
+
+    //pendidikan home
+    public function HomeTasywidul(){
+        return view('pages.pendidikan.tasywidul');
+    }
+
+    public function HomeMtsshifa(){
+        return view('pages.pendidikan.mts_shifa');
+    }
+
+    public function HomeSmkshifa(){
+        return view('pages.pendidikan.smk_shifa');
+    }
+
+    public function HomeRtqusman(){
+        return view('pages.pendidikan.rtq_usman');
+    }
+
+    public function HomeDiniyah(){
+        return view('pages.pendidikan.diniyah');
+    }
 }
