@@ -33,7 +33,7 @@
           <li><a href="blog.html">Blog</a></li> --}}
           <li><a href="{{ route('contact') }}">Contact</a></li>
 
-          <li class="drop-down"><a href="">Pendidikan</a>
+          <li class="drop-down"><a href="/">Pendidikan</a>
             <ul>
               <li><a href="{{ route('tasywidul') }}">RA Tasywidul Arifin</a></li>
               <li><a href="{{ route('mtsshifa') }}">MTs Shifa' Kalipare</a></li>

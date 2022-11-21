@@ -89,9 +89,6 @@ class ContactController extends Controller
     }
 
     //pendidikan home
-    public function HomeTasywidul(){
-        return view('pages.pendidikan.tasywidul');
-    }
 
     public function HomeMtsshifa(){
         return view('pages.pendidikan.mts_shifa');

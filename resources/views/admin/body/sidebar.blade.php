@@ -114,8 +114,8 @@
             <li  class="has-sub" >
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
                 aria-expanded="false" aria-controls="charts">
-                <i class="mdi mdi-chart-pie"></i>
-                <span class="nav-text">Charts</span> <b class="caret"></b>
+                <i class="mdi mdi-book-open-page-variant"></i>
+                <span class="nav-text">Pendidikan</span> <b class="caret"></b>
               </a>
               <ul  class="collapse"  id="charts"
                 data-parent="#sidebar-menu">
@@ -124,9 +124,32 @@
                   
                     
                       <li >
+                        <a class="sidenav-item-link" href="{{ route('admin.tasywidul') }}">
+                          <span class="nav-text">RA Tasywidul Arifin</span>
+                        </a>
+                      </li>
+
+                      <li >
                         <a class="sidenav-item-link" href="chartjs.html">
-                          <span class="nav-text">ChartJS</span>
-                          
+                          <span class="nav-text">MTs Shifa' Kalipare</span>
+                        </a>
+                      </li>
+
+                      <li >
+                        <a class="sidenav-item-link" href="chartjs.html">
+                          <span class="nav-text">SMK Shifa' Kalipare</span>
+                        </a>
+                      </li>
+
+                      <li >
+                        <a class="sidenav-item-link" href="chartjs.html">
+                          <span class="nav-text">RTQ Utsmaniyah</span>
+                        </a>
+                      </li>
+
+                      <li >
+                        <a class="sidenav-item-link" href="chartjs.html">
+                          <span class="nav-text">Madrasah Diniyah</span>
                         </a>
                       </li>
                     

@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ChangePassController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\TasywidulContactController;
 use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 
@@ -97,7 +98,7 @@ Route::get('/contact/delete/{id}', [ContactController::class, 'DeleteContact']);
 Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 //pendidikan home
-Route::get('/tasywidul', [ContactController::class, 'HomeTasywidul'])->name('tasywidul');
+
 Route::get('/mtsshifa', [ContactController::class, 'HomeMtsshifa'])->name('mtsshifa');
 Route::get('/smkshifa', [ContactController::class, 'HomeSmkshifa'])->name('smkshifa');
 Route::get('/rtqusman', [ContactController::class, 'HomeRtqusman'])->name('rtqusman');
@@ -105,6 +106,19 @@ Route::get('/diniyah', [ContactController::class, 'HomeDiniyah'])->name('diniyah
 //COntact Message Admin
 Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('admin.message');
 Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage']);
+
+
+//pendidikan Tasywidul Admin Route
+Route::get('/tasywidul/admin', [TasywidulContactController::class, 'adminTasywidul'])->name('admin.tasywidul');
+Route::get('/tasywidul/admin/create', [TasywidulContactController::class, 'createData'])->name('create.tasywidul');
+Route::post('/tasywidul/admin/add', [TasywidulContactController::class, 'AddData'])->name('add.tasywidul');
+Route::get('/tasywidul/edit/{id}', [TasywidulContactController::class, 'EditData']);
+Route::post('/tasywidul/update/{id}', [TasywidulContactController::class, 'UpdateData']);
+Route::get('/tasywidul/delete/{id}', [TasywidulContactController::class, 'DeleteData']);
+
+
+//pendidikan tasywidul home
+Route::get('/tasywidul', [TasywidulContactController::class, 'HomeTasywidul'])->name('tasywidul');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
