@@ -90,10 +90,6 @@ class ContactController extends Controller
 
     //pendidikan home
 
-    public function HomeSmkshifa(){
-        return view('pages.pendidikan.smk_shifa');
-    }
-
     public function HomeRtqusman(){
         return view('pages.pendidikan.rtq_usman');
     }

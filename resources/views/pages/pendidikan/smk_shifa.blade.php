@@ -38,19 +38,19 @@
               <div class="col-lg-4 info">
                 <i class="icofont-google-map"></i>
                 <h4>Location:</h4>
-                <p>Alamat</p>
+                <p>{{ $smk->alamat }}</p>
               </div>
 
               <div class="col-lg-4 info mt-4 mt-lg-0">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>Alamat Email</p>
+                <p>{{ $smk->email }}</p>
               </div>
 
               <div class="col-lg-4 info mt-4 mt-lg-0">
                 <i class="icofont-phone"></i>
-                <h4>Call:</h4>
-                <p>Contact number</p>
+                <h4>Contact number:</h4>
+                <p>{{ $smk->hp }}</p>
               </div>
             </div>
           </div>
@@ -73,13 +73,13 @@
             <div class="row">
               <div class="col-lg-5 info">
                 <h4>Visi:</h4>
-                <p>UB mempunyai visi menjadi perguruan tinggi pelopor dan pembaharu dengan reputasi internasional dalam ilmu pengetahuan dan teknologi, terutama yang menunjangindustri berbasis budaya untuk kesejahteraan masyarakat.</p>
+                <p>{{ $smk->visi }}</p>
               </div>
 
 
               <div class="col-lg-5 info">
                 <h4>Misi:</h4>
-                <p>UB mempunyai visi menjadi perguruan tinggi pelopor dan pembaharu dengan reputasi internasional dalam ilmu pengetahuan dan teknologi, terutama yang menunjangindustri berbasis budaya untuk kesejahteraan masyarakat.</p>
+                <p>{{ $smk->misi }}</p>
               </div>
             </div>
           </div>
@@ -89,5 +89,29 @@
      </div>
 
   </section><!-- End visi misi Section -->
+
+  <!-- Tujuan Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="row justify-content-center" data-aos="fade-up">
+
+        <div class="col-lg-10">
+
+          <div class="info-wrap">
+            <div class="row">
+              <div class="col-lg info">
+                <h4>Tujuan:</h4>
+                <p>{{ $smk->tujuan }}</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+     </div>
+
+  </section><!-- End tujuan Section -->
 
 @endsection

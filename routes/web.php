@@ -10,6 +10,7 @@ use App\Http\Controllers\ChangePassController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MtsShifaController;
+use App\Http\Controllers\SmkShifaController;
 use App\Http\Controllers\TasywidulContactController;
 use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
@@ -100,7 +101,6 @@ Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 //pendidikan home
 
-Route::get('/smkshifa', [ContactController::class, 'HomeSmkshifa'])->name('smkshifa');
 Route::get('/rtqusman', [ContactController::class, 'HomeRtqusman'])->name('rtqusman');
 Route::get('/diniyah', [ContactController::class, 'HomeDiniyah'])->name('diniyah');
 //COntact Message Admin
@@ -132,6 +132,18 @@ Route::get('/mtsshifa/delete/{id}', [MtsShifaController::class, 'deleteMtsshifa'
 
 //pendidikan mts shifa home
 Route::get('/mtsshifa', [MtsShifaController::class, 'HomeMtsshifa'])->name('mtsshifa');
+
+//pendidikan smk Shifa Admin route
+Route::get('/smkshifa/admin', [SmkShifaController::class, 'adminSmkshifa'])->name('admin.smkshifa');
+Route::get('/smkshifa/admin/create', [SmkShifaController::class, 'createSmkshifa'])->name('create.smkshifa');
+Route::post('/smkshifa/admin/add', [SmkShifaController::class, 'addSmkshifa'])->name('add.smkshifa');
+Route::get('/smkshifa/edit/{id}', [SmkShifaController::class, 'editSmkshifa']);
+Route::post('/smkshifa/update/{id}', [SmkShifaController::class, 'updateSmkshifa']);
+Route::get('/smkshifa/delete/{id}', [SmkShifaController::class, 'deleteSmkshifa']);
+
+
+//pendidikan smk Shifa home
+Route::get('/smkshifa', [SmkShifaController::class, 'HomeSmkshifa'])->name('smkshifa');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

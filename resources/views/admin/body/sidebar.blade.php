@@ -136,7 +136,7 @@
                       </li>
 
                       <li >
-                        <a class="sidenav-item-link" href="chartjs.html">
+                        <a class="sidenav-item-link" href="{{ route('admin.smkshifa') }}">
                           <span class="nav-text">SMK Shifa' Kalipare</span>
                         </a>
                       </li>
