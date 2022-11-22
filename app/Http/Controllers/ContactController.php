@@ -90,10 +90,6 @@ class ContactController extends Controller
 
     //pendidikan home
 
-    public function HomeMtsshifa(){
-        return view('pages.pendidikan.mts_shifa');
-    }
-
     public function HomeSmkshifa(){
         return view('pages.pendidikan.smk_shifa');
     }

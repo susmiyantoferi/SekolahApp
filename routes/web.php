@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ChangePassController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\MtsShifaController;
 use App\Http\Controllers\TasywidulContactController;
 use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
@@ -99,7 +100,6 @@ Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 //pendidikan home
 
-Route::get('/mtsshifa', [ContactController::class, 'HomeMtsshifa'])->name('mtsshifa');
 Route::get('/smkshifa', [ContactController::class, 'HomeSmkshifa'])->name('smkshifa');
 Route::get('/rtqusman', [ContactController::class, 'HomeRtqusman'])->name('rtqusman');
 Route::get('/diniyah', [ContactController::class, 'HomeDiniyah'])->name('diniyah');
@@ -119,6 +119,19 @@ Route::get('/tasywidul/delete/{id}', [TasywidulContactController::class, 'Delete
 
 //pendidikan tasywidul home
 Route::get('/tasywidul', [TasywidulContactController::class, 'HomeTasywidul'])->name('tasywidul');
+
+
+//pendidikan mts Shifa Admin Route
+Route::get('/mtsshifa/admin', [MtsShifaController::class, 'adminMtsshifa'])->name('admin.mtsshifa');
+Route::get('/mtsshifa/admin/create', [MtsShifaController::class, 'createMtsshifa'])->name('create.mtsshifa');
+Route::post('/mtsshifa/admin/add', [MtsShifaController::class, 'addMtsshifa'])->name('add.mtsshifa');
+Route::get('/mtsshifa/edit/{id}', [MtsShifaController::class, 'editMtsshifa']);
+Route::post('/mtsshifa/update/{id}', [MtsShifaController::class, 'updateMtsshifa']);
+Route::get('/mtsshifa/delete/{id}', [MtsShifaController::class, 'deleteMtsshifa']);
+
+
+//pendidikan mts shifa home
+Route::get('/mtsshifa', [MtsShifaController::class, 'HomeMtsshifa'])->name('mtsshifa');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

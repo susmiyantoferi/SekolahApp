@@ -130,7 +130,7 @@
                       </li>
 
                       <li >
-                        <a class="sidenav-item-link" href="chartjs.html">
+                        <a class="sidenav-item-link" href="{{ route('admin.mtsshifa') }}">
                           <span class="nav-text">MTs Shifa' Kalipare</span>
                         </a>
                       </li>
