@@ -142,7 +142,7 @@
                       </li>
 
                       <li >
-                        <a class="sidenav-item-link" href="chartjs.html">
+                        <a class="sidenav-item-link" href="{{ route('admin.rtqusman') }}">
                           <span class="nav-text">RTQ Utsmaniyah</span>
                         </a>
                       </li>

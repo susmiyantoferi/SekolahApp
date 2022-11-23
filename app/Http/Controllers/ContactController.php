@@ -90,10 +90,6 @@ class ContactController extends Controller
 
     //pendidikan home
 
-    public function HomeRtqusman(){
-        return view('pages.pendidikan.rtq_usman');
-    }
-
     public function HomeDiniyah(){
         return view('pages.pendidikan.diniyah');
     }

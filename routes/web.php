@@ -10,6 +10,7 @@ use App\Http\Controllers\ChangePassController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MtsShifaController;
+use App\Http\Controllers\RtqutsmaniyahController;
 use App\Http\Controllers\SmkShifaController;
 use App\Http\Controllers\TasywidulContactController;
 use App\Models\Multipic;
@@ -101,7 +102,6 @@ Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 //pendidikan home
 
-Route::get('/rtqusman', [ContactController::class, 'HomeRtqusman'])->name('rtqusman');
 Route::get('/diniyah', [ContactController::class, 'HomeDiniyah'])->name('diniyah');
 //COntact Message Admin
 Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('admin.message');
@@ -144,6 +144,18 @@ Route::get('/smkshifa/delete/{id}', [SmkShifaController::class, 'deleteSmkshifa'
 
 //pendidikan smk Shifa home
 Route::get('/smkshifa', [SmkShifaController::class, 'HomeSmkshifa'])->name('smkshifa');
+
+
+//pendidikan RTQ Utsmaniayah Admin
+Route::get('/rtqusman/admin', [RtqutsmaniyahController::class, 'adminRtqusman'])->name('admin.rtqusman');
+Route::get('/rtqusman/admin/create', [RtqutsmaniyahController::class, 'createRtqusman'])->name('create.rtqusman');
+Route::post('/rtqusman/admin/add', [RtqutsmaniyahController::class, 'addRtqusman'])->name('add.rtqusman');
+Route::get('/rtqusman/edit/{id}', [RtqutsmaniyahController::class, 'editRtqusman']);
+Route::post('/rtqusman/update/{id}', [RtqutsmaniyahController::class, 'updateRtqusman']);
+Route::get('/rtqusman/delete/{id}', [RtqutsmaniyahController::class, 'deleteRtqusman']);
+
+//pendidikan RTQ Utsmaniayah Home
+Route::get('/rtqusman', [RtqutsmaniyahController::class, 'HomeRtqusman'])->name('rtqusman');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
