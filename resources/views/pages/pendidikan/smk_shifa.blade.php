@@ -25,6 +25,14 @@
     </div>
   @endif
 
+
+  @if ($smk == null)
+      
+  <h3 class="text-center"><span class="text-danger">*</span>Data SMK Shifa' Kalipare Kosong</h3>
+  <h3 class="text-center"><span class="text-danger">*</span>Mohon Masukan Data Dibagian Admin Pendidikan</h3>
+
+  @else
+
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
     <div class="container">
@@ -49,7 +57,7 @@
 
               <div class="col-lg-4 info mt-4 mt-lg-0">
                 <i class="icofont-phone"></i>
-                <h4>Contact number:</h4>
+                <h4>Contact Number:</h4>
                 <p>{{ $smk->hp }}</p>
               </div>
             </div>
@@ -113,5 +121,8 @@
      </div>
 
   </section><!-- End tujuan Section -->
+      
+  @endif
+
 
 @endsection

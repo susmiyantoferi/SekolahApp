@@ -25,6 +25,13 @@
     </div>
   @endif
 
+  @if ($data == null)
+
+  <h3 class="text-center"><span class="text-danger">*</span>Data RA Tasywidul Arifin Kosong</h3>
+  <h3 class="text-center"><span class="text-danger">*</span>Mohon Masukan Data Dibagian Admin Pendidikan</h3>
+      
+  @else
+
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
     <div class="container">
@@ -112,5 +119,9 @@
      </div>
 
   </section><!-- End Tujuan Section -->
+      
+  @endif
+
+  
 
 @endsection
