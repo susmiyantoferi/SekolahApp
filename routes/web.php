@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ChangePassController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\DiniyahController;
 use App\Http\Controllers\MtsShifaController;
 use App\Http\Controllers\RtqutsmaniyahController;
 use App\Http\Controllers\SmkShifaController;
@@ -100,9 +101,7 @@ Route::get('/contact/delete/{id}', [ContactController::class, 'DeleteContact']);
 //Contact page Route
 Route::get('/contact', [ContactController::class, 'HomeContact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
-//pendidikan home
 
-Route::get('/diniyah', [ContactController::class, 'HomeDiniyah'])->name('diniyah');
 //COntact Message Admin
 Route::get('/contact/message', [ContactController::class, 'ContactMessage'])->name('admin.message');
 Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage']);
@@ -156,6 +155,18 @@ Route::get('/rtqusman/delete/{id}', [RtqutsmaniyahController::class, 'deleteRtqu
 
 //pendidikan RTQ Utsmaniayah Home
 Route::get('/rtqusman', [RtqutsmaniyahController::class, 'HomeRtqusman'])->name('rtqusman');
+
+
+//pendidikan diniyah admin
+Route::get('/diniyah/admin', [DiniyahController::class, 'AdminDiniyah'])->name('admin.diniyah');
+Route::get('/diniyah/admin/create', [DiniyahController::class, 'CreateDiniyah'])->name('create.diniyah');
+Route::post('/diniyah/admin/add', [DiniyahController::class, 'AddDiniyah'])->name('add.diniyah');
+Route::get('/diniyah/edit/{id}', [DiniyahController::class, 'EditDiniyah']);
+Route::post('/diniyah/update/{id}', [DiniyahController::class, 'UpdateDiniyah']);
+Route::get('/diniyah/delete/{id}', [DiniyahController::class, 'DeleteDiniyah']);
+
+//pendidikan diniyah home
+Route::get('/diniyah', [DiniyahController::class, 'HomeDiniyah'])->name('diniyah');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

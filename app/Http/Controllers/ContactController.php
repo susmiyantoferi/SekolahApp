@@ -87,10 +87,5 @@ class ContactController extends Controller
         ContactForm::find($id)->delete();
         return Redirect()->route('admin.message')->with('succsess', 'Message Deleted Successfull');
     }
-
-    //pendidikan home
-
-    public function HomeDiniyah(){
-        return view('pages.pendidikan.diniyah');
-    }
+    
 }

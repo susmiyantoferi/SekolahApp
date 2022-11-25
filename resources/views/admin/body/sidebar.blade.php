@@ -148,7 +148,7 @@
                       </li>
 
                       <li >
-                        <a class="sidenav-item-link" href="chartjs.html">
+                        <a class="sidenav-item-link" href="{{ route('admin.diniyah') }}">
                           <span class="nav-text">Madrasah Diniyah</span>
                         </a>
                       </li>
