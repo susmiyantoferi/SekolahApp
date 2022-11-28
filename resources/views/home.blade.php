@@ -2,29 +2,39 @@
 @include('layouts.header.slider')
 
     @section('home_content')
+
+    @if ($abouts == null)
+
+    <h3 class="text-center"><span class="text-danger">*</span>About Pesantren Shirotul Fuqoha' II Kosong</h3>
+    <h3 class="text-center"><span class="text-danger">*</span>Mohon Masukan Data Dibagian Admin Home About</h3>
         
+    @else
+
     <!-- ======= About Us Section ======= -->
     <section id="about-us" class="about-us">
-        <div class="container" data-aos="fade-up">
-  
-          <div class="section-title">
-            <h2>About Us</strong></h2>
-          </div>
-  
-          <div class="row content">
-            <div class="col-lg-6" data-aos="fade-right">
-              <h2>{{ $abouts->title }}</h2>
-              <h3>{{ $abouts->short_discrp }}</h3>
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
-              <p>
-                {{ $abouts->long_discrp }}
-              </p>
-            </div>
-          </div>
-  
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</strong></h2>
         </div>
-      </section><!-- End About Us Section -->
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h2>{{ $abouts->title }}</h2>
+            <h3>{{ $abouts->short_discrp }}</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
+            <p>
+              {{ $abouts->long_discrp }}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+        
+    @endif
+        
   
       <!-- ======= Portfolio Section ======= -->
       <section id="portfolio" class="portfolio">

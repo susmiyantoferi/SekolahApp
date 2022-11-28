@@ -34,37 +34,48 @@
   <section id="contact" class="contact">
     <div class="container">
 
-      <div class="row justify-content-center" data-aos="fade-up">
+    @if ($contacts == null)
 
-        <div class="col-lg-10">
+    <h3 class="text-center"><span class="text-danger">*</span>Data Contact Pesantren Shirotul Fuqoha' II Kosong</h3>
+    <h3 class="text-center"><span class="text-danger">*</span>Mohon Masukan Data Dibagian Admin Contact Page</h3>
+        
+    @else
 
-          <div class="info-wrap">
-            <div class="row">
-              <div class="col-lg-4 info">
-                <i class="icofont-google-map"></i>
-                <h4>Location:</h4>
-                <p>{{ $contacts->address }}</p>
-              </div>
+    <div class="row justify-content-center" data-aos="fade-up">
 
-              <div class="col-lg-4 info mt-4 mt-lg-0">
-                <i class="icofont-envelope"></i>
-                <h4>Email:</h4>
-                <p>{{ $contacts->email }}</p>
-              </div>
+      <div class="col-lg-10">
 
-              <div class="col-lg-4 info mt-4 mt-lg-0">
-                <i class="icofont-phone"></i>
-                <h4>Call:</h4>
-                <p>{{ $contacts->phone }}</p>
-              </div>
+        <div class="info-wrap">
+          <div class="row">
+            <div class="col-lg-4 info">
+              <i class="icofont-google-map"></i>
+              <h4>Location:</h4>
+              <p>{{ $contacts->address }}</p>
+            </div>
+
+            <div class="col-lg-4 info mt-4 mt-lg-0">
+              <i class="icofont-envelope"></i>
+              <h4>Email:</h4>
+              <p>{{ $contacts->email }}</p>
+            </div>
+
+            <div class="col-lg-4 info mt-4 mt-lg-0">
+              <i class="icofont-phone"></i>
+              <h4>Call:</h4>
+              <p>{{ $contacts->phone }}</p>
             </div>
           </div>
-
         </div>
 
       </div>
 
+    </div>
+        
+    @endif
+
+      
       <div class="row mt-5 justify-content-center" data-aos="fade-up">
+        <h5 class="text-center"><span class="text-danger">*</span>Pesan Dan Masukan</h5>
         <div class="col-lg-10">
           <form action="{{ route('contact.form') }}" method="post">
             @csrf
