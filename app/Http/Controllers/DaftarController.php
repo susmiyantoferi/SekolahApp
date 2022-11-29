@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class DaftarController extends Controller
 {
+    //Home
     public function Daftar()
     {
         $data = Santri::latest()->simplePaginate(5);
@@ -123,5 +124,95 @@ class DaftarController extends Controller
         $pdf = PDF::loadView('pages.pendaftaran.daftar_print', $data);
         $pdf->SetProtection(['copy', 'print'], '', 'pass');
         return $pdf->stream('Data_Pendaftaran_Santri.pdf');
+    }
+
+    
+
+    //Admin
+    public function AdminDaftar(){
+        $data['details'] = Santri::with(['orangtua'])->get()->all();
+        $data['details'] = Orangtua::with(['santri'])->get()->all();
+        //dd($data);
+        $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
+
+        return view('admin.pendaftaran.index', $data);
+    }
+
+    public function EditSantri($id){
+        $data = Santri::find($id);
+        return view('admin.pendaftaran.editSantri', compact('data'));
+    }
+
+    public function UpdateSantri(Request $request, $id){
+        //update data on table santris
+        $santri = Santri::where('id', $id)->first();
+        $santri->nik = $request->nik;
+        $santri->nisn = $request->nisn;
+        $santri->nama = $request->nama;
+        $santri->kelamin = $request->kelamin;
+        $santri->tempat_lahir = $request->tempat_lahir;
+        $santri->tgl_lahir = $request->tgl_lahir;
+        $santri->alamat = $request->alamat;
+        $santri->tinggal = $request->tinggal;
+        $santri->bahasa = $request->bahasa;
+        $santri->save();
+
+        $notification = array(
+            'message' => 'Data Santri Updated Successfull',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('admin.daftar')->with($notification);
+        
+    }
+
+    public function EditOrangtua($id){
+        $data = Orangtua::find($id);
+        return view('admin.pendaftaran.editOrangtua', compact('data'));
+    }
+
+    public function UpdateOrangtua(Request $request, $id){
+        //update data on table orangtuas
+        $ortu = Orangtua::where('id', $id)->first();
+        $ortu->no_kk = $request->no_kk;
+        $ortu->nik_ayh = $request->nik_ayh;
+        $ortu->nama_ayh = $request->nama_ayh;
+        $ortu->agama_ayh = $request->agama_ayh;
+        $ortu->pend_ayh = $request->pend_ayh;
+        $ortu->kerja_ayh = $request->kerja_ayh;
+        $ortu->gaji_ayh = $request->gaji_ayh;
+        $ortu->status_ayh = $request->status_ayh;
+
+        $ortu->nik_ibu = $request->nik_ibu;
+        $ortu->nama_ibu = $request->nama_ibu;
+        $ortu->agama_ibu = $request->agama_ibu;
+        $ortu->pend_ibu = $request->pend_ibu;
+        $ortu->kerja_ibu = $request->kerja_ibu;
+        $ortu->gaji_ibu = $request->gaji_ibu;
+        $ortu->status_ibu = $request->status_ibu;
+        $ortu->hp = $request->hp;
+        $ortu->save();
+
+        $notification = array(
+            'message' => 'Data Orangtua Updated Successfull',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('admin.daftar')->with($notification);
+        
+    }
+
+    public function DeletePendaftaran($id){
+        $data['details'] = Santri::with(['orangtua'])->where('id', $id)->first()->delete();
+        $data['details'] = Orangtua::with(['santri'])->where('id', $id)->first()->delete();
+        //dd($data);
+
+        $notification = array(
+            'message' => 'Data Pendaftaran Santri Deleted Successfull',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('admin.daftar')->with($notification);
+    
     }
 }

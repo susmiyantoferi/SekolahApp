@@ -73,12 +73,21 @@ Route::post('/slider/update/{id}', [HomeController::class, 'Update']);
 Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
 
 //Daftar Santri Controller & Route
+//Home
 Route::get('/daftar', [DaftarController::class, 'Daftar'])->name('daftar');
 Route::get('/add/santri', [DaftarController::class, 'addSantri'])->name('santri.add');
 Route::post('/add/santri/store', [DaftarController::class, 'StoreSantri'])->name('store.santri.daftar');
 Route::get('/add/orangtua', [DaftarController::class, 'AddOrangtua']);
 Route::post('/add/orangtua/store', [DaftarController::class, 'StoreOrangtua'])->name('store.orangtua.daftar');
 Route::get('/daftar/print/{id}', [DaftarController::class, 'DaftarPrint'])->name('daftar.print');
+
+//Admin
+Route::get('/admin/daftar', [DaftarController::class, 'AdminDaftar'])->name('admin.daftar');
+Route::get('/santri/edit/{id}', [DaftarController::class, 'EditSantri']);
+Route::post('/santri/update/{id}', [DaftarController::class, 'UpdateSantri']);
+Route::get('/orangtua/edit/{id}', [DaftarController::class, 'EditOrangtua']);
+Route::post('/orangtua/update/{id}', [DaftarController::class, 'UpdateOrangtua']);
+Route::get('/daftar/delete/{id}', [DaftarController::class, 'DeletePendaftaran']);
 
 //About Controller & Route 
 Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
