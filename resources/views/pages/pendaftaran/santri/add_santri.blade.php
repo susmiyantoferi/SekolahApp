@@ -37,6 +37,11 @@
                          <h5>NIK <span class="text-danger">*</span></h5>
                          <div class="controls">
                              <input type="text" name="nik" class="form-control" required="">
+
+                          @error('nik')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                          </div>
                        </div>
 
@@ -48,6 +53,11 @@
                          <h5>NISN<span class="text-danger">*</span></h5>
                          <div class="controls">
                              <input type="text" name="nisn" class="form-control" required="">
+
+                          @error('nisn')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                          </div>
                        </div>
 

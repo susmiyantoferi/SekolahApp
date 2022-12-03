@@ -37,6 +37,11 @@
                          <h5>No Kartu Keluarga <span class="text-danger">*</span></h5>
                          <div class="controls">
                              <input type="text" name="no_kk" class="form-control" required="">
+
+                          @error('no_kk')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                          </div>
                        </div>
 
@@ -48,6 +53,11 @@
                          <h5>NIK Ayah<span class="text-danger">*</span></h5>
                          <div class="controls">
                              <input type="text" name="nik_ayh" class="form-control" required="">
+
+                          @error('nik_ayh')
+                             <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                          </div>
                        </div>
 
@@ -145,6 +155,11 @@
                          <h5>NIK Ibu<span class="text-danger">*</span></h5>
                          <div class="controls">
                              <input type="text" name="nik_ibu" class="form-control" required="">
+
+                          @error('nik_ibu')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                          </div>
                        </div>
 

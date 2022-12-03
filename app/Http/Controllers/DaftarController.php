@@ -12,31 +12,29 @@ class DaftarController extends Controller
     //Home
     public function Daftar()
     {
-        $data = Santri::latest()->simplePaginate(5);
-        return view('pages.pendaftaran.daftar', compact('data'));
+        // $data = Santri::latest()->simplePaginate(5);
+        $data['details'] = Santri::with(['orangtua'])->get()->all();
+        $data['details'] = Orangtua::with(['santri'])->get()->all();
+        $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
+        //dd($data);
+        return view('pages.pendaftaran.daftar', $data);
     }
 
     public function addSantri(){
         return view('pages.pendaftaran.santri.add_santri');
     }
 
-    public function StoreSantri(Request $request){
-        $validateData = $request->validate([
-            'nik' => 'required|unique:santris',
-            'nisn' => 'required|unique:santris',
-            'nama' => 'required',
-            'kelamin' => 'required',
-            'tempat_lahir' => 'required',
-            'tgl_lahir' => 'required',
-            'alamat' => 'required',
-            'tinggal' => 'required',
-            'bahasa' => 'required',
-        ], [
-            'nik.required' => 'Masukan NIK',
-            'nik.unique' => 'NIK Tidak Boleh Sama',
-            'nisn.required' => 'Masukan NISN',
-            'nisn.unique' => 'NISN Tidak Boleh Sama',
+    public function AddOrangtua(){
+        return view('pages.pendaftaran.orangtua.add_orangtua');
+    }
 
+    public function StoreSantri(Request $request){
+        $this->validate($request, [
+            'nik' => 'unique:santris',
+            'nisn' => 'unique:santris',
+        ], $message = [
+            'nik.unique' => 'NIK Anda Sudah Digunakan, Mohon Ganti NIK Anda! ',
+            'nisn.unique' => 'NISN Anda Sudah Digunakan, Mohon Ganti NISN Anda! ',
         ]);
 
         //insert table santris
@@ -57,32 +55,21 @@ class DaftarController extends Controller
             'alert-type' => 'success',
         );
 
-        // return redirect()->route('daftar')->with($notification);
-        return view('pages.pendaftaran.orangtua.add_orangtua')->with($notification);
+        return redirect()->route('orangtua.add')->with($notification);
+        // return view('pages.pendaftaran.orangtua.add_orangtua')->with($notification);
     }
 
-    public function AddOrangtua(){
-        return view('pages.pendaftaran.orangtua.add_orangtua');
-    }
+    
 
     public function StoreOrangtua(Request $request){
-        $validateData = $request->validate([
-            'no_kk' => 'required|unique:orangtuas',
-            'nik_ayh' => 'required|unique:orangtuas',
-            'nama_ayh' => 'required',
-            'agama_ayh' => 'required',
-            'pend_ayh' => 'required',
-            'kerja_ayh' => 'required',
-            'gaji_ayh' => 'required',
-            'status_ayh' => 'required',
-            'nik_ibu' => 'required|unique:orangtuas',
-            'nama_ibu' => 'required',
-            'agama_ibu' => 'required',
-            'pend_ibu' => 'required',
-            'kerja_ibu' => 'required',
-            'gaji_ibu' => 'required',
-            'status_ibu' => 'required',
-            'hp' => 'required',
+        $this->validate($request, [
+            'no_kk' => 'unique:orangtuas',
+            'nik_ayh' => 'unique:orangtuas',
+            'nik_ibu' => 'unique:orangtuas',
+        ], $message = [
+            'no_kk.unique' => 'No KK Sudah Pernah Digunakan, Mohon Ganti No KK Anda! ',
+            'nik_ayh.unique' => 'NIK Ayah Sudah Pernah Digunakan, Mohon Ganti NIK Ayah Anda! ',
+            'nik_ibu.unique' => 'NIK Ibu Sudah Pernah Digunakan, Mohon Ganti NIK Ibu Anda! ',
         ]);
 
         //insert table orangtuas
@@ -126,7 +113,7 @@ class DaftarController extends Controller
         return $pdf->stream('Data_Pendaftaran_Santri.pdf');
     }
 
-    
+
 
     //Admin
     public function AdminDaftar(){

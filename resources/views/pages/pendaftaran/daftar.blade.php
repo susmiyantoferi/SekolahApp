@@ -37,25 +37,30 @@
                 <thead>
                     <tr>
                         <th width="5%">No</th>
-                        <th>NIK</th>
+                        <th>NIK Santri</th>
                         <th>NISN</th>
-                        <th>Nama</th>
+                        <th>Santri</th>
+                        <th>Orangtua</th>
                         <th>Alamat</th>
-                        <th width="20%">Action</th>
+                        <th>Action</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach ($data as $key => $santri)
+                  @php
+                    $key = 1;
+                  @endphp
+                  @foreach ($details as $all)
                     <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{ $santri->nik }}</td>
-                        <td>{{ $santri->nisn }}</td>
-                        <td>{{ $santri->nama }}</td>
-                        <td>{{ $santri->alamat }}</td>
+                        <td>{{$key++}}</td>
+                        <td>{{ $all['santri']['nik'] }}</td>
+                        <td>{{ $all['santri']['nisn'] }}</td>
+                        <td>{{ $all['santri']['nama'] }}</td>
+                        <td>{{ $all->nama_ayh }}</td>
+                        <td>{{ $all['santri']['alamat'] }}</td>
                         <td>
                           {{-- <a href="{{ url('/add/ayah/'.$santri->id) }}" class="btn btn-primary">Data Ayah</a> --}}
-                          <a target="_blank" href="{{ route('daftar.print',$santri->id) }}" class="btn btn-danger">Print</a>
+                          <a target="_blank" href="{{ route('daftar.print',$all->id) }}" class="btn btn-danger">Print</a>
                           
                         </td>
                         
@@ -68,7 +73,7 @@
               </table>
 
               {{-- pagination --}}
-              {{ $data->links() }}
+              {{ $details->links() }}
 
             </div>
         </div>
