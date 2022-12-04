@@ -10,12 +10,22 @@ use Illuminate\Http\Request;
 class DaftarController extends Controller
 {
     //Home
-    public function Daftar()
+    public function Daftar(Request $request)
     {
+        if ($request->has('search')) {
+            $data['details'] = Orangtua::with(['santri'])->orWhereRelation('santri','nama','LIKE','%'.$request->search.'%')->simplePaginate(5);
+        } 
+        else {
+            $data['details'] = Santri::with(['orangtua'])->get()->all();
+            $data['details'] = Orangtua::with(['santri'])->get()->all();
+            $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
+            //$data['details'] = Santri::with(['orangtua'])->latest()->simplePaginate(5);
+        }
+
         // $data = Santri::latest()->simplePaginate(5);
-        $data['details'] = Santri::with(['orangtua'])->get()->all();
-        $data['details'] = Orangtua::with(['santri'])->get()->all();
-        $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
+        // $data['details'] = Santri::with(['orangtua'])->get()->all();
+        // $data['details'] = Orangtua::with(['santri'])->get()->all();
+        // $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
         //dd($data);
         return view('pages.pendaftaran.daftar', $data);
     }
@@ -116,11 +126,20 @@ class DaftarController extends Controller
 
 
     //Admin
-    public function AdminDaftar(){
-        $data['details'] = Santri::with(['orangtua'])->get()->all();
-        $data['details'] = Orangtua::with(['santri'])->get()->all();
-        //dd($data);
-        $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
+    public function AdminDaftar(Request $request){
+        if ($request->has('search')) {
+            $data['details'] = Orangtua::with(['santri'])->orWhereRelation('santri','nama','LIKE','%'.$request->search.'%')->simplePaginate(5);
+        } 
+        else {
+            $data['details'] = Santri::with(['orangtua'])->get()->all();
+            $data['details'] = Orangtua::with(['santri'])->get()->all();
+            $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
+        }
+
+        // $data['details'] = Santri::with(['orangtua'])->get()->all();
+        // $data['details'] = Orangtua::with(['santri'])->get()->all();
+        // //dd($data);
+        // $data['details'] = Orangtua::with(['santri'])->latest()->simplePaginate(5);
 
         return view('admin.pendaftaran.index', $data);
     }

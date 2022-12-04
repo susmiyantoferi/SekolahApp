@@ -29,6 +29,20 @@
      <div class="box">
         <div class="box-header with-border">
           <a href="{{route('santri.add')}}" style="float: left;" class="btn btn-rounded btn-success mb-5">Daftar</a>
+
+          {{-- Kolom Search  --}}
+          <div class="row g-2 align-items-center" style="float: right;">
+            <div class="col-auto">
+              <label  class="col-form-label">Search: </label>
+            </div>
+            <div class="col-auto">
+              <form action="{{ route('daftar') }}" method="GET">
+              <input type="search" id="search" name="search" class="form-control" placeholder="Enter Nama Santri">
+              </form>
+            </div>
+          </div>
+          {{-- Kolom Search  --}}
+
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -53,9 +67,9 @@
                   @foreach ($details as $all)
                     <tr>
                         <td>{{$key++}}</td>
-                        <td>{{ $all['santri']['nik'] }}</td>
-                        <td>{{ $all['santri']['nisn'] }}</td>
-                        <td>{{ $all['santri']['nama'] }}</td>
+                        <td>{{ $all['santri']['nik']}}</td>
+                        <td>{{ $all['santri']['nisn']}}</td>
+                        <td>{{ $all['santri']['nama']}}</td>
                         <td>{{ $all->nama_ayh }}</td>
                         <td>{{ $all['santri']['alamat'] }}</td>
                         <td>

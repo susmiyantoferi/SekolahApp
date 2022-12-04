@@ -8,7 +8,21 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"> --}}
 
                 <h4>Home Pendaftaran</h4>
-                <div class="container">
+
+                {{-- Kolom Search  --}}
+                <div class="row g-2 align-items-center mt-2">
+                  <div class="col-auto">
+                    <label  class="col-form-label">Search:</label>
+                  </div>
+                  <div class="col-auto">
+                    <form action="{{ route('admin.daftar') }}" method="GET">
+                    <input type="search" id="search" name="search" class="form-control" placeholder="Enter Nama Santri">
+                    </form>
+                  </div>
+                </div>
+              {{-- Kolom Search  --}}
+
+                <div class="container mt-2">
                     <div class="row">
 
                      {{-- <a href="{{ route('add.slider') }}"> <button class="btn btn-info">Add Slider</button> </a> --}}
