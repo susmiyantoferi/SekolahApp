@@ -22,6 +22,11 @@
                           <h5>NIK <span class="text-danger">*</span></h5>
                           <div class="controls">
                               <input type="text" name="nik" class="form-control" required="" value="{{ $data->nik }}">
+
+                          @error('nik')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                           </div>
                         </div>
  
@@ -33,6 +38,11 @@
                           <h5>NISN<span class="text-danger">*</span></h5>
                           <div class="controls">
                               <input type="text" name="nisn" class="form-control" required="" value="{{ $data->nisn }}">
+
+                          @error('nisn')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                           </div>
                         </div>
  
@@ -61,9 +71,11 @@
                            <div class="controls">
                    
                                <select name="kelamin" id="kelamin" required="" class="form-control">
-                                   <option value="" selected="" disabled="" >{{ $data->kelamin }}</option>
-                                   <option value="laki-laki">Laki-laki</option>
-                                   <option value="Perempuan">Perempuan</option>
+                                   <option value="" selected="" disabled="" >jenis kelamin</option>
+                                   {{-- <option value="laki-laki">Laki-laki</option>
+                                   <option value="Perempuan">Perempuan</option> --}}
+                                   <option value="laki-laki" {{ ($data->kelamin == 'laki-laki')? 'selected': '' }}>laki-laki</option>
+                                   <option value="Perempuan" {{ ($data->kelamin == 'Perempuan')? 'selected': '' }}>Perempuan</option>
                                </select>
   
                            </div>
@@ -115,9 +127,11 @@
                           <div class="controls">
                   
                               <select name="tinggal" id="tinggal" required="" class="form-control">
-                                  <option value="" selected="" disabled="" >{{ $data->tinggal }}</option>
-                                  <option value="Orangtua">Orangtua</option>
-                                  <option value="Wali">Wali</option>
+                                  <option value="" selected="" disabled="" >Select</option>
+                                  {{-- <option value="Orangtua">Orangtua</option>
+                                  <option value="Wali">Wali</option> --}}
+                                  <option value="Orangtua" {{ ($data->tinggal == 'Orangtua')? 'selected': '' }}>Orangtua</option>
+                                  <option value="Wali" {{ ($data->tinggal == 'Wali')? 'selected': '' }}>Wali</option>
                               </select>
  
                           </div>

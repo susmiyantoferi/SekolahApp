@@ -36,7 +36,7 @@
                        <div class="form-group">
                          <h5>NIK <span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="nik" class="form-control" required="">
+                             <input type="text" name="nik" class="form-control" required="" value="{{ old('nik') }}">
 
                           @error('nik')
                             <span class="text-danger">{{ $message }}</span>
@@ -52,7 +52,7 @@
                        <div class="form-group">
                          <h5>NISN<span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="nisn" class="form-control" required="">
+                             <input type="text" name="nisn" class="form-control" required="" value="{{ old('nisn') }}">
 
                           @error('nisn')
                             <span class="text-danger">{{ $message }}</span>

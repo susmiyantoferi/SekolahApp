@@ -36,7 +36,7 @@
                        <div class="form-group">
                          <h5>No Kartu Keluarga <span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="no_kk" class="form-control" required="">
+                             <input type="text" name="no_kk" class="form-control" required="" value="{{ old('no_kk') }}">
 
                           @error('no_kk')
                             <span class="text-danger">{{ $message }}</span>
@@ -52,7 +52,7 @@
                        <div class="form-group">
                          <h5>NIK Ayah<span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="nik_ayh" class="form-control" required="">
+                             <input type="text" name="nik_ayh" class="form-control" required="" value="{{ old('nik_ayh') }}">
 
                           @error('nik_ayh')
                              <span class="text-danger">{{ $message }}</span>
@@ -121,7 +121,12 @@
                         <div class="form-group">
                           <h5>Gaji <span class="text-danger">*</span></h5>
                           <div class="controls">
-                              <input type="text" name="gaji_ayh" class="form-control" required="">
+                              <input type="text" name="gaji_ayh" class="form-control" required="" value="{{ old('gaji_ayh') }}">
+
+                          @error('gaji_ayh')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                           </div>
                         </div>
  
@@ -154,7 +159,7 @@
                        <div class="form-group">
                          <h5>NIK Ibu<span class="text-danger">*</span></h5>
                          <div class="controls">
-                             <input type="text" name="nik_ibu" class="form-control" required="">
+                             <input type="text" name="nik_ibu" class="form-control" required="" value="{{ old('nik_ibu') }}">
 
                           @error('nik_ibu')
                             <span class="text-danger">{{ $message }}</span>
@@ -218,7 +223,12 @@
                         <div class="form-group">
                           <h5>Gaji <span class="text-danger">*</span></h5>
                           <div class="controls">
-                              <input type="text" name="gaji_ibu" class="form-control" required="">
+                              <input type="text" name="gaji_ibu" class="form-control" required="" value="{{ old('gaji_ibu') }}">
+
+                          @error('gaji_ibu')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                           </div>
                         </div>
  
@@ -250,7 +260,12 @@
                         <div class="form-group">
                           <h5>No Telephon<span class="text-danger">*</span></h5>
                           <div class="controls">
-                              <input type="text" name="hp" class="form-control" required="">
+                              <input type="text" name="hp" class="form-control" required="" value="{{ old('hp') }}">
+
+                          @error('hp')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
+
                           </div>
                         </div>
  

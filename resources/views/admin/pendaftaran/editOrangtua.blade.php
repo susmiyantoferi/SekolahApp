@@ -22,6 +22,11 @@
                           <h5>No Kartu Keluarga <span class="text-danger">*</span></h5>
                           <div class="controls">
                               <input type="text" name="no_kk" class="form-control" required="" value="{{ $data->no_kk }}">
+
+                            @error('no_kk')
+                              <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
                           </div>
                         </div>
  
@@ -33,6 +38,11 @@
                           <h5>NIK Ayah<span class="text-danger">*</span></h5>
                           <div class="controls">
                               <input type="text" name="nik_ayh" class="form-control" required="" value="{{ $data->nik_ayh }}">
+
+                            @error('nik_ayh')
+                              <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
                           </div>
                         </div>
  
@@ -97,6 +107,11 @@
                            <h5>Gaji <span class="text-danger">*</span></h5>
                            <div class="controls">
                                <input type="text" name="gaji_ayh" class="form-control" required="" value="{{ $data->gaji_ayh }}">
+
+                            @error('gaji_ayh')
+                              <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
                            </div>
                          </div>
   
@@ -109,9 +124,11 @@
                           <div class="controls">
                   
                               <select name="status_ayh" id="status" required="" class="form-control">
-                                  <option value="" selected="" disabled="" >{{ $data->status_ayh }}</option>
-                                  <option value="Hidup">Hidup</option>
-                                  <option value="Meninggal">Meninggal</option>
+                                  <option value="" selected="" disabled="" >Select</option>
+                                  {{-- <option value="Hidup">Hidup</option>
+                                  <option value="Meninggal">Meninggal</option> --}}
+                                  <option value="Hidup" {{ ($data->status_ayh == 'Hidup')? 'selected': '' }}>Hidup</option>
+                                  <option value="Meninggal" {{ ($data->status_ayh == 'Meninggal')? 'selected': '' }}>Meninggal</option>
                               </select>
  
                           </div>
@@ -130,6 +147,11 @@
                           <h5>NIK Ibu<span class="text-danger">*</span></h5>
                           <div class="controls">
                               <input type="text" name="nik_ibu" class="form-control" required="" value="{{ $data->nik_ibu }}">
+
+                            @error('nik_ibu')
+                              <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                              
                           </div>
                         </div>
  
@@ -189,6 +211,11 @@
                            <h5>Gaji <span class="text-danger">*</span></h5>
                            <div class="controls">
                                <input type="text" name="gaji_ibu" class="form-control" required="" value="{{ $data->gaji_ibu }}">
+
+                            @error('gaji_ibu')
+                               <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
                            </div>
                          </div>
   
@@ -205,9 +232,11 @@
                            <div class="controls">
                    
                                <select name="status_ibu" id="status" required="" class="form-control">
-                                   <option value="" selected="" disabled="" >{{ $data->status_ibu }}</option>
-                                   <option value="Hidup">Hidup</option>
-                                   <option value="Meninggal">Meninggal</option>
+                                   <option value="" selected="" disabled="" >Select</option>
+                                   {{-- <option value="Hidup">Hidup</option>
+                                   <option value="Meninggal">Meninggal</option> --}}
+                                   <option value="Hidup" {{ ($data->status_ibu == 'Hidup')? 'selected': '' }}>Hidup</option>
+                                  <option value="Meninggal" {{ ($data->status_ibu == 'Meninggal')? 'selected': '' }}>Meninggal</option>
                                </select>
   
                            </div>
@@ -221,6 +250,11 @@
                            <h5>No Telephon<span class="text-danger">*</span></h5>
                            <div class="controls">
                                <input type="text" name="hp" class="form-control" required="" value="{{ $data->hp }}">
+
+                              @error('hp')
+                               <span class="text-danger">{{ $message }}</span>
+                             @enderror
+
                            </div>
                          </div>
   

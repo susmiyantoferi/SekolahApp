@@ -13,7 +13,7 @@ class DaftarController extends Controller
     public function Daftar(Request $request)
     {
         if ($request->has('search')) {
-            $data['details'] = Orangtua::with(['santri'])->orWhereRelation('santri','nama','LIKE','%'.$request->search.'%')->simplePaginate(5);
+            $data['details'] = Orangtua::with(['santri'])->orWhereRelation('santri','nama','LIKE','%'.$request->search.'%')->latest()->simplePaginate(5);
         } 
         else {
             $data['details'] = Santri::with(['orangtua'])->get()->all();
@@ -40,11 +40,13 @@ class DaftarController extends Controller
 
     public function StoreSantri(Request $request){
         $this->validate($request, [
-            'nik' => 'unique:santris',
-            'nisn' => 'unique:santris',
+            'nik' => 'unique:santris|numeric',
+            'nisn' => 'unique:santris|numeric',
         ], $message = [
-            'nik.unique' => 'NIK Anda Sudah Digunakan, Mohon Ganti NIK Anda! ',
-            'nisn.unique' => 'NISN Anda Sudah Digunakan, Mohon Ganti NISN Anda! ',
+            'nik.unique' => 'NIK Anda Sudah Terdaftar, Mohon Ganti NIK Anda! ',
+            'nisn.unique' => 'NISN Anda Sudah Terdaftar, Mohon Ganti NISN Anda! ',
+            'nik.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nisn.numeric' => 'Masukan Angka, Bukan Huruf!',
         ]);
 
         //insert table santris
@@ -73,13 +75,22 @@ class DaftarController extends Controller
 
     public function StoreOrangtua(Request $request){
         $this->validate($request, [
-            'no_kk' => 'unique:orangtuas',
-            'nik_ayh' => 'unique:orangtuas',
-            'nik_ibu' => 'unique:orangtuas',
+            'no_kk' => 'unique:orangtuas|numeric',
+            'nik_ayh' => 'unique:orangtuas|numeric',
+            'nik_ibu' => 'unique:orangtuas|numeric',
+            'gaji_ayh' => 'numeric',
+            'gaji_ibu' => 'numeric',
+            'hp' => 'numeric',
         ], $message = [
-            'no_kk.unique' => 'No KK Sudah Pernah Digunakan, Mohon Ganti No KK Anda! ',
-            'nik_ayh.unique' => 'NIK Ayah Sudah Pernah Digunakan, Mohon Ganti NIK Ayah Anda! ',
-            'nik_ibu.unique' => 'NIK Ibu Sudah Pernah Digunakan, Mohon Ganti NIK Ibu Anda! ',
+            'no_kk.unique' => 'No KK Sudah Terdaftar, Mohon Ganti No KK Anda! ',
+            'nik_ayh.unique' => 'NIK Ayah Sudah Terdaftar, Mohon Ganti NIK Ayah Anda! ',
+            'nik_ibu.unique' => 'NIK Ibu Sudah Terdaftar, Mohon Ganti NIK Ibu Anda! ',
+            'no_kk.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nik_ayh.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nik_ibu.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'gaji_ayh.numeric' => 'Masukan Angka!',
+            'gaji_ibu.numeric' => 'Masukan Angka!',
+            'hp.numeric' => 'Masukan Angka, Bukan Huruf!',
         ]);
 
         //insert table orangtuas
@@ -128,7 +139,7 @@ class DaftarController extends Controller
     //Admin
     public function AdminDaftar(Request $request){
         if ($request->has('search')) {
-            $data['details'] = Orangtua::with(['santri'])->orWhereRelation('santri','nama','LIKE','%'.$request->search.'%')->simplePaginate(5);
+            $data['details'] = Orangtua::with(['santri'])->orWhereRelation('santri','nama','LIKE','%'.$request->search.'%')->latest()->simplePaginate(5);
         } 
         else {
             $data['details'] = Santri::with(['orangtua'])->get()->all();
@@ -150,6 +161,14 @@ class DaftarController extends Controller
     }
 
     public function UpdateSantri(Request $request, $id){
+        $this->validate($request, [
+            'nik' => 'numeric',
+            'nisn' => 'numeric',
+        ], $message = [
+            'nik.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nisn.numeric' => 'Masukan Angka, Bukan Huruf!',
+        ]);
+        
         //update data on table santris
         $santri = Santri::where('id', $id)->first();
         $santri->nik = $request->nik;
@@ -178,6 +197,25 @@ class DaftarController extends Controller
     }
 
     public function UpdateOrangtua(Request $request, $id){
+        $this->validate($request, [
+            'no_kk' => 'numeric',
+            'nik_ayh' => 'numeric',
+            'nik_ibu' => 'numeric',
+            'gaji_ayh' => 'numeric',
+            'gaji_ibu' => 'numeric',
+            'hp' => 'numeric',
+        ], $message = [
+            'no_kk.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nik_ayh.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nik_ibu.numeric' => 'Masukan Angka, Bukan Huruf! ',
+            'no_kk.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nik_ayh.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'nik_ibu.numeric' => 'Masukan Angka, Bukan Huruf!',
+            'gaji_ayh.numeric' => 'Masukan Angka!',
+            'gaji_ibu.numeric' => 'Masukan Angka!',
+            'hp.numeric' => 'Masukan Angka, Bukan Huruf!',
+        ]);
+
         //update data on table orangtuas
         $ortu = Orangtua::where('id', $id)->first();
         $ortu->no_kk = $request->no_kk;
