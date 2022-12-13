@@ -8,7 +8,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class=""><a href="/">Home</a></li>
+          <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
 
           {{-- <li class="drop-down"><a href="">About</a>
             <ul>
@@ -27,19 +27,19 @@
             </ul>
           </li> --}}
 
-          <li><a href="{{ route('daftar') }}">Pendaftaran</a></li>
-          <li><a href="{{ route('portofolio') }}">Portfolio</a></li>
+          <li class="{{ request()->is('daftar') ? 'active' : '' }}"><a href="{{ route('daftar') }}">Pendaftaran</a></li>
+          <li class="{{ request()->is('portofolio') ? 'active' : '' }}"><a href="{{ route('portofolio') }}">Portfolio</a></li>
           {{-- <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog.html">Blog</a></li> --}}
-          <li><a href="{{ route('contact') }}">Contact</a></li>
+          <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact</a></li>
 
-          <li class="drop-down"><a href="/">Pendidikan</a>
+          <li class="drop-down"><a href="#">Pendidikan</a>
             <ul>
-              <li><a href="{{ route('tasywidul') }}">RA Tasywidul Arifin</a></li>
-              <li><a href="{{ route('mtsshifa') }}">MTs Shifa' Kalipare</a></li>
-              <li><a href="{{ route('smkshifa') }}">SMK Shifa' Kalipare</a></li>
-              <li><a href="{{ route('rtqusman') }}">RTQ Utsmaniyah</a></li>
-              <li><a href="{{ route('diniyah') }}">Madrasah Diniyah Shirotul Fuqoha' II</a></li>
+              <li class="{{ request()->is('tasywidul') ? 'active' : '' }}"><a href="{{ route('tasywidul') }}">RA Tasywidul Arifin</a></li>
+              <li class="{{ request()->is('mtsshifa') ? 'active' : '' }}"><a href="{{ route('mtsshifa') }}">MTs Shifa' Kalipare</a></li>
+              <li class="{{ request()->is('smkshifa') ? 'active' : '' }}"><a href="{{ route('smkshifa') }}">SMK Shifa' Kalipare</a></li>
+              <li class="{{ request()->is('rtqusman') ? 'active' : '' }}"><a href="{{ route('rtqusman') }}">RTQ Utsmaniyah</a></li>
+              <li class="{{ request()->is('diniyah') ? 'active' : '' }}"><a href="{{ route('diniyah') }}">Madrasah Diniyah Shirotul Fuqoha' II</a></li>
             </ul>
           </li>
 

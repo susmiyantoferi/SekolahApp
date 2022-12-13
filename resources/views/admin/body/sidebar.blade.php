@@ -2,10 +2,10 @@
     <div id="sidebar" class="sidebar sidebar-with-footer">
       <!-- Aplication Brand -->
       <div class="app-brand">
-        <a href="/index.html">
+        <a href="#">
           <svg
             class="brand-icon"
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="#"
             preserveAspectRatio="xMidYMid"
             width="30"
             height="33"
@@ -32,7 +32,7 @@
 
           
             <li  class="has-sub active expand" >
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
+              <a class="sidenav-item-link" href="#" data-toggle="collapse" data-target="#dashboard"
                 aria-expanded="false" aria-controls="dashboard">
                 <i class="mdi mdi-home-circle"></i>
                 <span class="nav-text">Home</span> <b class="caret"></b>
@@ -85,7 +85,7 @@
 
           
             <li  class="has-sub" >
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
+              <a class="sidenav-item-link" href="#" data-toggle="collapse" data-target="#ui-elements"
                 aria-expanded="false" aria-controls="ui-elements">
                 <i class="mdi mdi-contacts"></i>
                 <span class="nav-text">Contact Page</span> <b class="caret"></b>
@@ -117,7 +117,7 @@
 
           
             <li  class="has-sub" >
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
+              <a class="sidenav-item-link" href="#" data-toggle="collapse" data-target="#charts"
                 aria-expanded="false" aria-controls="charts">
                 <i class="mdi mdi-book-open-page-variant"></i>
                 <span class="nav-text">Pendidikan</span> <b class="caret"></b>
@@ -169,7 +169,7 @@
           
 
           
-            <li  class="has-sub" >
+            {{-- <li  class="has-sub" >
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pages"
                 aria-expanded="false" aria-controls="pages">
                 <i class="mdi mdi-image-filter-none"></i>
@@ -186,13 +186,13 @@
                           <span class="nav-text">User Profile</span>
                           
                         </a>
-                      </li>
+                      </li> --}}
                     
                   
 
                   
                   
-                  <li  class="has-sub" >
+                  {{-- <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#authentication"
                       aria-expanded="false" aria-controls="authentication">
                       <span class="nav-text">Authentication</span> <b class="caret"></b>
@@ -210,12 +210,12 @@
                         
                       </div>
                     </ul>
-                  </li>
+                  </li> --}}
                   
 
                   
                   
-                  <li  class="has-sub" >
+                  {{-- <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#others"
                       aria-expanded="false" aria-controls="others">
                       <span class="nav-text">Others</span> <b class="caret"></b>
@@ -233,19 +233,19 @@
                         
                       </div>
                     </ul>
-                  </li>
+                  </li> 
                   
 
                   
                 </div>
               </ul>
-            </li>
+            </li>--}}
           
 
           
 
           
-            <li  class="has-sub" >
+            {{-- <li  class="has-sub" >
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#documentation"
                 aria-expanded="false" aria-controls="documentation">
                 <i class="mdi mdi-book-open-page-variant"></i>
@@ -393,7 +393,7 @@
                   
                 </div>
               </ul>
-            </li>
+            </li> --}}
           
 
           

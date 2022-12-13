@@ -77,7 +77,7 @@
                   <button type="button" name="search" id="search-btn" class="btn btn-flat">
                     <i class="mdi mdi-magnify"></i>
                   </button>
-                  <input type="text" name="query" id="search-input" class="form-control" placeholder="'button', 'chart' etc."
+                  <input type="text" name="query" id="search-input" class="form-control" disabled="true"
                     autofocus autocomplete="off" />
                 </div>
                 <div id="search-results-container">
@@ -88,18 +88,19 @@
               <div class="navbar-right ">
                 <ul class="nav navbar-nav">
                   <!-- Github Link Button -->
-                  <li class="github-link mr-3">
-                    <a class="btn btn-outline-secondary btn-sm" href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
+                  {{-- <li class="github-link mr-3">
+                    <a class="btn btn-outline-secondary btn-sm" href="#" >
                       <span class="d-none d-md-inline-block mr-2">Source Code</span>
                       <i class="mdi mdi-github-circle"></i>
                     </a>
 
-                  </li>
-                  <li class="dropdown notifications-menu">
+                  </li> --}}
+
+                  {{--<li class="dropdown notifications-menu">
                     <button class="dropdown-toggle" data-toggle="dropdown">
                       <i class="mdi mdi-bell-outline"></i>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
+                     <ul class="dropdown-menu dropdown-menu-right">
                       <li class="dropdown-header">You have 5 notifications</li>
                       <li>
                         <a href="#">
@@ -135,7 +136,7 @@
                         <a class="text-center" href="#"> View All </a>
                       </li>
                     </ul>
-                  </li>
+                  </li> --}}
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -161,12 +162,12 @@
                           <i class="mdi mdi-lead-pencil"></i> Change Password
                         </a>
                       </li>
-                      <li>
+                      {{-- <li>
                         <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
                       </li>
                       <li>
                         <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
-                      </li>
+                      </li> --}}
 
                       <li class="dropdown-footer">
                         <a href="{{ route('user.logout') }}"> <i class="mdi mdi-logout"></i> Log Out </a>
@@ -193,12 +194,11 @@
                   <footer class="footer mt-auto">
             <div class="copyright bg-white">
               <p>
-                &copy; <span id="copy-year">2019</span> Copyright Sleek Dashboard Bootstrap Template by
+                &copy; <span id="copy-year"></span> ADMIN PESANTREN SHIROTHUL FUQOHA' II
                 <a
                   class="text-primary"
-                  href="http://www.iamabdus.com/"
-                  target="_blank"
-                  >Abdus</a
+                  href="#"
+                  ></a
                 >.
               </p>
             </div>

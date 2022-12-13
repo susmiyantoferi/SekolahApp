@@ -18,7 +18,7 @@ $sliders = DB::table('sliders')->get();
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>{{ $slider->title }}</h2>
               <p>{{ $slider->description }}</p>
-              <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
+              {{-- <div class="text-center"><a href="" class="btn-get-started">Read More</a></div> --}}
             </div>
           </div>
         </div>

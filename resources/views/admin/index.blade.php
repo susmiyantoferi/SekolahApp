@@ -110,7 +110,7 @@
 </div>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-xl-4 col-lg-6 col-12">
                 
   <!-- Polar and Radar Chart -->
@@ -741,6 +741,6 @@
       </div>
   </div>
 </div>
-        </div>
+        </div> --}}
 
 @endsection
