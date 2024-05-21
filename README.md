@@ -4,6 +4,7 @@ Aplikasi ini dibedakan menjadi 2 halaman utama web digunakan untuk menampilkan s
    # Teknologi Yang digunakan :
    * Laravel 8
    * PostgresSQL 13
+   * Bootstrap
    
 #
       Sebelum Menajalankan, ikuti langkah-langkah sebagai berikut :
